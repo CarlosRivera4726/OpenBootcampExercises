@@ -1,0 +1,104 @@
+<form [formGroup]="miFormularioValidado" (submit)="enviarFormulario()">
+
+    <!--
+    <h3>Datos en vivo del formulario: </h3>
+    <p>{{ miFormularioValidado.value | json }}</p>
+    -->
+    <!--Campos del formulario + mensajes de error por validacion-->
+
+    <!--!Inicio Nombre-->
+    <mat-form-field class="form">
+        <input matInput placeholder="Nombre" formControlName="nombre">
+        <!--? Manejo de errores -->
+        <mat-error *ngIf="nombre?.errors?.['required'] && nombre?.touched">
+            El campo nombre es obligatorio!
+        </mat-error>
+        <mat-error *ngIf="nombre?.errors?.['pattern'] && nombre?.touched">
+            Solo se admiten letras!
+        </mat-error>
+        <!--? Fin Manejo de errores campo nombre-->
+    </mat-form-field>
+    <!--! Fin Nombre-->
+    <br>
+    <br>
+
+    <!--! Inicio Apellidos-->
+    <mat-form-field class="form">
+        <input matInput placeholder="Apellido" formControlName="apellidos">
+        <!--? Manejo de errores -->
+        <mat-error *ngIf="apellidos?.errors?.['required'] && apellidos?.touched">
+            El campo apellidos es obligatorio!
+        </mat-error>
+        <mat-error *ngIf="apellidos?.errors?.['pattern'] && apellidos?.touched">
+         Solo se admiten letras!
+        </mat-error>
+        <!--? Fin Manejo de errores campo nombre-->
+    </mat-form-field>
+    <!--! Fin Apellidos-->
+
+    <br>
+    <br>
+
+    <!--! Inicio Edad -->
+    <mat-form-field class="form">
+        <input matInput placeholder="Edad" formControlName="edad">
+        <!--? Manejo de errores -->
+        <mat-error *ngIf="edad?.errors?.['required'] && edad?.touched">
+            Este campo es <strong>obligatorio</strong>
+        </mat-error>
+
+        <mat-error *ngIf="edad?.errors?.['min'] && edad?.touched">
+            Ingrese una edad valida! No puedes registrate con <strong>{{ edad?.errors?.['min'].actual }} año(s)</strong>
+        </mat-error>
+
+        <mat-error *ngIf="edad?.errors?.['max'] && edad?.touched">
+            Ingrese una edad valida! No puedes registrate con <strong>{{ edad?.errors?.['max'].actual }} años</strong>
+        </mat-error>
+        <!--? fin manejo de errores -->
+    </mat-form-field>
+
+    <!--! Fin Edad -->
+    <br>
+    <br>
+    <!--! Inicio Email -->
+    <mat-form-field class="form">
+        <input matInput placeholder="Email" formControlName="email">
+        <!--? Manejo de errores-->
+        <mat-error *ngIf="(email?.errors?.['required'] || email?.errors?.['email']) && email?.touched">
+            Ingrese un email valido example: ex@mail.com
+        </mat-error>
+        <!--? fin manejo de errores-->
+    </mat-form-field>
+
+    <!--! Fin Email -->
+    <br>
+    <br>
+    <!--! Inicio Password-->
+
+    <mat-form-field class="form">
+        <input matInput type="password" placeholder="Password" formControlName="password">
+
+        <!--? Manejo de errores -->
+        <mat-error *ngIf="(password?.errors?.['required'] || password?.errors?.['pattern']) && password?.touched">
+            Ingrese una contraseña valida!
+        </mat-error>
+        <!--? Fin Manejo de errores -->
+    </mat-form-field>
+
+    <!--! Fin password-->
+    <br>
+    <br>
+
+    <mat-checkbox type="checkbox" placeholder="acepta" formControlName="acepta">Acepto</mat-checkbox>
+
+    <br>
+    <br>
+    <ng-container *ngIf="miFormularioValidado.invalid; else submit">
+        <button mat-raised-button disabled>Disabled</button>
+    </ng-container>
+
+    <ng-template #submit>
+        <button mat-raised-button color="primary" type="submit">Enviar</button>
+    </ng-template>
+
+</form>

@@ -1,0 +1,43 @@
+<!-- Bloque de directivas de atributo-->
+<p [ngStyle]="{color: 'tomato', fontWeight: 'bolder'}">Lista de elementos:</p>
+
+<p ngClass="underlined">Aquí vamos a iterar sobre una lista y mostrar varios elementos</p>
+
+<p class="underlined" [ngClass]="['small']">Aun no tienes tareas</p>
+
+<p class="underlined" [ngClass]="{underlined: false, small: true}">Aun no tienes tareas</p>
+
+<!-- Bloque de directivas estructurales -->
+
+<button (click)="cambiarCargando()">{{ cargando ? 'Terminar Cargar': 'Iniciar Carga' }}</button>
+
+<ng-container *ngIf="!cargando; else elseTemplate">
+    <p>Todo listo!</p>
+</ng-container>
+
+<ng-template #elseTemplate>
+    <p>Cargando...</p>
+    <p>Espere a que termine el proceso</p>
+</ng-template>
+
+<!-- NGFor-->
+<div *ngFor="let producto of listaElementos; let i = index; let even = odd;" >
+    <div class="producto" [ngStyle]="even ?{backgroundColor: '#5800a0', color: 'white'}: {backgroundColor: 'rgb(121, 90, 120)', color: 'white'}" >
+        <p>ID: {{ i+1 }}</p>
+        <p [ngStyle]="{fontWeight: 'bold'}">{{ producto.nombre }} - {{ producto.precio }} &#8364;</p>
+        <p [ngClass]="['underlined']" [ngStyle]="{borderBottomColor: 'green'}" > - {{ producto.descripcion }}</p>
+    </div>
+</div>
+
+<!-- NgSwitch-->
+
+<div [ngSwitch]="opcion">
+    <div [id]="1" *ngSwitchCase="1">output1</div>
+    <div [id]="2" *ngSwitchCase="2">output2</div>
+    <div [id]="3" *ngSwitchCase="3">output3</div>
+    <div [id]="4" *ngSwitchCase="4">output4</div>
+    <div [id]="5" *ngSwitchCase="5">output5</div>
+    <div [id]="6" *ngSwitchCase="6">output6</div>
+    <div *ngSwitchDefault="">Nothing</div>
+    <button (click)="incrementar()">Increment</button>
+</div>
