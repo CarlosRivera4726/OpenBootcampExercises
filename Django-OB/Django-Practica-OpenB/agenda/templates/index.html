@@ -1,0 +1,37 @@
+{% extends './layout/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    home
+{% endblock title %}
+
+{% block headers %}
+    <h1>Bienvenido a tu Gestor Personal</h1>
+{% endblock headers %}
+
+{% block content %}
+
+<div class="cards">
+
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'imgs/contact.png' %}" class="card-img-top" alt="contactos">
+        <div class="card-body">
+          <h5 class="card-title">Contactos</h5>
+          <p class="card-text">En este apartado puedes ver los contactos registrados.</p>
+          <a href="{% url 'contact:index' %}" class="btn btn-primary">Contactos</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'imgs/todos.png' %}" class="card-img-top" alt="tareas">
+        <div class="card-body">
+          <h5 class="card-title">Tareas</h5>
+          <p class="card-text">En este apartado puedes ver tus tareas pendientes.</p>
+          <a href="{% url 'todo:index' %}" class="btn btn-primary">Tareas</a>
+        </div>
+      </div>
+</div>
+
+
+ {% endblock content %}

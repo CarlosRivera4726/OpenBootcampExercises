@@ -1,0 +1,17 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}Details{% endblock title %}
+
+{% block content %}
+    <h3>
+        Nombre: {{ author.name }}
+    </h3>
+
+    <h3>Contactame: </h3>
+
+    <h5>
+        <a href="mailto:{{ author.email }}">{{author.email}}</a>
+    </h5>
+    
+    <a class="btn btn-danger" href="{% url 'app-post:entries' author.id %}" role="button" >Volver</a>
+{% endblock content %}

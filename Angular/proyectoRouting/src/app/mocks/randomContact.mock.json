@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Gregorio", "last": "Rodríquez" },
+      "location": {
+        "street": { "number": 3547, "name": "Continuación China" },
+        "city": "José Cardel",
+        "state": "Colima",
+        "country": "Mexico",
+        "postcode": 92430,
+        "coordinates": { "latitude": "23.4938", "longitude": "-134.8814" },
+        "timezone": {
+          "offset": "+10:00",
+          "description": "Eastern Australia, Guam, Vladivostok"
+        }
+      },
+      "email": "gregorio.rodriquez@example.com",
+      "login": {
+        "uuid": "6cf5664e-6fb3-4827-ad1e-68abef0399ea",
+        "username": "bigtiger467",
+        "password": "susan",
+        "salt": "z8SoHlC5",
+        "md5": "379dc6559f7d4ea9f8642f43b2742567",
+        "sha1": "12f0a7731451882de53a8263036b6ef561943e32",
+        "sha256": "17b3789e20a7622ece761efb3eba3302ef55caf6c9fe4fb929cc91f2dcaaf2b4"
+      },
+      "dob": { "date": "1976-06-20T14:37:07.176Z", "age": 46 },
+      "registered": { "date": "2015-09-10T17:21:18.048Z", "age": 7 },
+      "phone": "(699) 025 5863",
+      "cell": "(676) 743 2830",
+      "id": { "name": "NSS", "value": "42 60 72 0435 3" },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/72.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/72.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/72.jpg"
+      },
+      "nat": "MX"
+    }
+  ],
+  "info": {
+    "seed": "a3e9e76236791fc6",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}

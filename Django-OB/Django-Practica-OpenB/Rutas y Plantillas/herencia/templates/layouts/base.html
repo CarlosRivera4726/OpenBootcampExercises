@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta section -->
+    {% include './partials/meta.html' %}
+
+    <!-- End Meta section-->
+    <link rel="stylesheet" href="{%static 'style.css' %}">
+    {% block styles %} {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <!-- Menu Section-->
+    {% include './partials/menu.html' %}
+    <!-- End menu section-->
+
+    <main>
+        {% block content %} {% endblock%}
+    </main>
+
+
+    <!-- Footer section -->
+    {% include './partials/footer.html' %}
+    <!-- end footer section-->
+
+    <!-- Scripts section-->
+    {% block scripts %} {% endblock %}
+    
+    <!-- end Scripts section-->
+    
+</body>
+</html>

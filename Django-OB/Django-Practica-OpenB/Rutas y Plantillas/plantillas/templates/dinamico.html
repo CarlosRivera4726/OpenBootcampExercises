@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+</head>
+<body>
+    <h4>Hola {{ name }}</h4>
+
+    <h3>Categorias</h3>
+
+    <!-- Usando bucles for-->
+    <ul>
+        {% for category in categories %}
+            <li>{{ category }}</li>
+        {% endfor %}
+    </ul>
+    <!-- Condicionales-->
+    <ol>
+        {% for category in categories %}
+            {% if category == 'code' %}
+                <li><b>{{ category }}</b></li>
+            {% else %}
+            <li>{{ category }}</li>
+            {% endif %}
+        {% endfor %}
+        
+    <!-- Usando filtros -->
+    <h4>Total de categorias: {{categories|length}}</h4>
+    </ol>
+
+
+    
+    
+</body>
+</html>

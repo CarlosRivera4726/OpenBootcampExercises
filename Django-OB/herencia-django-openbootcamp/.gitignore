@@ -1,0 +1,6 @@
+db.sqlite3
+herencia/settings.py
+manage.py
+herencia/wsgi.py
+herencia/asgi.py
+herencia/__pycache__/*

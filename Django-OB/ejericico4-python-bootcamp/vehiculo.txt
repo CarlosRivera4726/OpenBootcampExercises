@@ -1,0 +1,6 @@
+Este vehiculo tiene: 
+4 ruedas
+4 puertas
+4 ventanas
+200 CC
+400 KM/h

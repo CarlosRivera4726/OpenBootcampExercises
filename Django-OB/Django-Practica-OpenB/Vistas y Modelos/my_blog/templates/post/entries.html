@@ -1,0 +1,40 @@
+{% extends '../layouts/base.html' %}
+{% load static %}
+
+{% block title %}Entradas{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'entries/entries.css' %}">
+{% endblock styles %}
+
+{% block content %}
+
+<h1>Entradas totales: {{ entries | length }}</h1>
+{% if entries%}
+
+    {% for entry in entries %}
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">Autor: <a href="{% url 'app-post:author/details' author.id %}">{{ author.name }}</a></h5>
+                        <p class="card-text"><spam style="color: red;">Entry:</spam> {{ entry.headline }}</p>
+                        <a href="{% url 'app-post:info' entry.id %}" class="btn btn-primary">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <br />
+
+    {% endfor %}
+
+{% else %}
+    <h3>El autor no ha creado ninguna entrada!</h3>
+{% endif %}
+
+
+<a class="btn btn-danger" href="{% url 'app-post:index' %}">Volver</a>
+    
+{% endblock content %}

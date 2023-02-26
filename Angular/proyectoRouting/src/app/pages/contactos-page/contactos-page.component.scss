@@ -1,0 +1,30 @@
+.contactos{
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    transition: 1s all;
+    align-items: center;
+    text-align: center;
+}
+
+.contactos:hover{
+    background-color: wheat;
+    color: black;
+    font-size: 15px;
+}
+.details{
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    border-style: none;
+    transition: 1s all;
+}
+.details:hover {
+    cursor: pointer;
+    background-color: #8afcfc;
+    width: bolder;
+    font-size: 13.5px;
+}

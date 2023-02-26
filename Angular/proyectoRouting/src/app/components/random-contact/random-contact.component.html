@@ -1,0 +1,47 @@
+
+<h2>Random Contact</h2>
+
+
+<ng-container class="container" *ngIf="randomContact; else NoContact">
+
+    <mat-card class="card-contact">
+        <mat-card-header>
+            <div mat-card-avatar class="randomContactImage"> <img src="{{randomContact.picture.thumbnail}}"> </div>
+            <mat-card-title>
+                {{randomContact.name.title}}
+                {{randomContact.name.first}}
+                {{randomContact.name.last}}
+            </mat-card-title>
+            <mat-card-subtitle>
+                {{randomContact.id.name}} - {{randomContact.email}}
+
+            </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <p>
+                Fecha de Nacimiento: <strong>{{randomContact.dob.date | date}}.</strong>
+                <br>
+                <strong>{{randomContact.dob.age}}</strong> años
+            </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button class="cambiarContacto" mat-stroked-button color="primary" (click)="agregarAContacto(randomContact)" >Agregar A Contactos </button>
+            <!--<button class="cambiarContacto" mat-stroked-button color="primary" (click)="seleccionarComoAmigo()">Elegir Como Amigo </button> -->
+            <button class="cambiarContacto" mat-stroked-button color="warn" [routerLink]="['/home']">VOLVER </button>
+        </mat-card-actions>
+    </mat-card>
+
+</ng-container>
+
+<ng-template #NoContact>
+
+    <h2>No existe el contacto</h2>
+  
+    <mat-progress-spinner color="warn" mode='indeterminate' value="matSliderThumb">
+    </mat-progress-spinner>
+    
+
+</ng-template>
+

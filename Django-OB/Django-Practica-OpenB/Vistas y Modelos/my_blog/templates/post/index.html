@@ -1,0 +1,17 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %} Autores {% endblock title %}
+
+{% block content %}
+
+<h3> Total de autores: {{ authors | length }} </h3>
+
+<ol>
+    {% for author in authors %}
+        <li><a href="/post/entries/{{ author.id }}"> {{ author.name }} ({{ author.email }}) </a></li>
+        <br>
+    {% endfor %}
+
+</ol>
+
+{% endblock %}

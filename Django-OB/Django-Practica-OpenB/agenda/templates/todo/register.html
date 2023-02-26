@@ -1,0 +1,15 @@
+{% extends '../layout/base.html' %}
+
+{% block title %} Registro Tareas{% endblock title %}
+
+{% block headers %}
+    <h1>Registrar Tareas</h1>
+{% endblock headers %}
+
+{% block content %}
+    <form action="{% url 'todo:register' %}" method="POST">
+        {% csrf_token %}
+        {{ todoForm }}
+        <button class="btn btn-success" type="submit">Registrar Tarea</button> 
+    </form>
+{% endblock content %}

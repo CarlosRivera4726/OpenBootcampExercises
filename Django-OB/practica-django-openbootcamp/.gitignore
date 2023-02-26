@@ -1,0 +1,10 @@
+db.sqlite3
+practica/__pycache__/__init__.cpython-311.pyc
+practica/__pycache__/views.cpython-311.pyc
+practica/__pycache__/urls.cpython-311.pyc
+practica/__pycache__/settings.cpython-311.pyc
+practica/__pycache__/wsgi.cpython-311.pyc
+practica/settings.py
+practica/asgi.py
+manage.py
+practica/wsgi.py

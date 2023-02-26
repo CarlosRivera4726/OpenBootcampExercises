@@ -1,0 +1,64 @@
+{% extends '../layout/base.html' %}
+{% load static %}
+
+{% block title %}
+    Conactos
+{% endblock title %}
+
+{% block headers %}
+    <div class="container" style="display: flex; text-align: center; justify-content: center; align-items: center;">
+        <img src="{% static 'imgs/contact.png' %}" width="100px" height="100px"/>
+        <h1>Contactos</h1>
+    </div>
+{% endblock headers %}
+
+{% block content %}
+
+
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="alert alert-success"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+{% endif %}
+
+
+
+   
+<div class="container-sm">
+    {% include 'contact/partials/search.html' %}
+    
+    {% include 'contact/partials/by_letter.html' %}
+        
+<!-- visualizar datos registrados-->
+    {% if count >= 1 %}
+
+        <span>
+            <a class="btn btn-success" href="{% url 'contact:register' %}">Agregar Contacto</a>
+        </span>
+        <span>
+        </span>
+        <br>
+        <ul class="lista">
+            {% for contact in contacts %}
+                <li>
+                    {{ contact }} {{ contact.last_name }}
+                    <span>
+                        <a class="btn btn-dark" href="{% url 'contact:view' id=contact.id %}">Ver</a>
+                        <a class="btn btn-primary" href="{% url 'contact:edit' id=contact.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'contact:delete' id=contact.id %}">Borrar</a>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        
+            <h3 class="alert alert-danger">No existen contactos registrados</h3>
+            <br>
+            <a class="btn btn-success" href="{% url 'contact:register' %}"> Registrar Un Contacto</a>
+    {% endif %}
+</div>
+
+{% endblock content %}
+

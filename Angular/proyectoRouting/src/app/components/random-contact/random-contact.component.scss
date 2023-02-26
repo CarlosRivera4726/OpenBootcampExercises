@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.card-contact{
+    max-width: 400px;
+}
+
+.randomContactImage img{
+    background-size: cover;
+    border-radius: 50%;
+}
+.cambiarContacto:hover{
+    transition: 2s all;
+    background-color: rgb(39, 36, 36);
+    color: white;
+}

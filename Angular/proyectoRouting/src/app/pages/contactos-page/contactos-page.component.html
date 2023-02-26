@@ -1,0 +1,25 @@
+
+<h1>Tus contactos:</h1>
+<br>
+<br>
+
+<!--Listar los contactos-->
+
+<div *ngFor="let contacto of listaContactos; let i=index">
+    
+    <ng-container *ngIf="contacto; else error">
+        <div class="contactos" routerLink="{{contacto.id}}" [state]="{data: contacto, filtro: filtroSexo}">
+            <h4>Nombre: {{ contacto.nombre }}</h4>
+        </div>
+        <button class="details" (click)="volverAHome(contacto)"> Seleccionar como amigo invisible </button>
+    </ng-container>
+
+    <ng-template #error>
+        <div>
+            <p>Ha surgido un error </p>
+        </div>
+    </ng-template>
+
+</div>
+
+<a [routerLink]="['/home']">Volver</a> 

@@ -1,0 +1,151 @@
+
+:root{
+    --color-primary: #38598b;
+    --color-secondary: #a2a8d3;
+    --color-text: #e7eaf6;
+    --color-bg: #113f67;
+    --font-text-primary: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: var(--color-text);
+    font-family: var(--font-text-primary);
+}
+p{
+    color: var(--color-secondary);
+}
+
+nav{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: var(--color-text);
+}
+
+.logo{
+    width: 64px;
+    margin: 25px;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul li{
+    padding: 20px;
+}
+/*! Navigator, font and others*/
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-bg);
+    font-size: 30px;
+    font-weight: 700;
+    font-family: var(--font-text-primary);
+    transition: 1s all;
+}
+nav ul li a:hover {
+    color: var(--color-secondary);
+}
+
+main{
+    background-color: var(--color-bg);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 50px;
+    margin-bottom: 6.3%;
+}
+
+.about{
+    display: flex;
+    margin-top: 60px;
+    padding: 25px;
+}
+
+.about-content{
+    width: 250px;
+    align-items: center;
+}
+.about-content h3{
+    width: 250px;
+    text-align: justify;
+    margin-left: 90px;
+}
+
+.about-content p{
+    width: 250px;
+    text-align: justify;
+    margin-left: 20px;
+}
+
+.title{
+    margin-bottom: 5%;
+}
+.photos{
+    display: flex;
+    justify-self: center;
+    flex-wrap: wrap;
+    width: 30%;
+}
+.photos img{
+    padding: 6px;
+}
+
+footer{
+    width: 100vw;
+    min-height: 150px;
+    background-color: var(--color-text);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+footer p{
+    font-size: 20px;
+    transition: 0s all;
+}
+
+footer p:hover{
+    color: rgb(143, 0, 0);
+}
+
+footer ul{
+    list-style-type: none;
+}
+
+
+footer ul li a{
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 20px;
+    font-family: var(--font-text-primary);
+    
+}
+
+footer a{
+    transition: all;
+}
+
+footer a:hover{
+    color: var(--color-bg);
+    font-weight: 600;
+    font-size: 19;
+}
+
+
+
+

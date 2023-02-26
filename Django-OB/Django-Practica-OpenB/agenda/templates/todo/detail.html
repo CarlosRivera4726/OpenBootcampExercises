@@ -1,0 +1,42 @@
+{% extends '../layout/base.html' %}
+{% load static %}
+
+{% block title %} {{ todo }} {% endblock title %}
+
+{% block headers %} <h3> {{ todo }} | Prioridad: {{ todo.priority }} </h3>{% endblock headers %}
+
+
+{% block content %}
+    <div class="container-sm">
+        <ul class="lista" style="width: 35%;">
+            {% if todo %}
+            <li>
+                {% if todo.status %}
+                   <div class="container-sm">
+                        <a href="{% url 'todo:edit' id=todo.id %}"> <img src="{% static 'imgs/comprobado.png' %}" alt="status -> True" width="50px" heigth="50px"/></a>
+                        <br>
+                        <h5>Tarea Finalizada</h5>
+                   </div>
+                
+                {% else %}
+                    <div class="container-sm">
+                        <a href="{% url 'todo:edit' id=todo.id%}"><img src="{% static 'imgs/cancelar.png' %}" alt="status -> False" width="50px" heigth="50px"/></a>
+                        <br>
+                        <h5>Tarea sin finalizar</h5>
+                    </div>
+                {% endif %}
+            </li>
+                
+                <li> Descripción:  <span>{{ todo.description }} </span></li>
+                <li> Fecha de registro:  <span>{{ todo.date }} </span></li>
+                {% if todo.estimated_end %}
+                    <li> Fin estimado: <span> {{todo.estimated_end}} </span></li>
+                {% endif %}
+            {% endif %}
+        </ul>
+        <span style="display: flex; flex-direction: column;">
+            <br>
+            <a class="btn btn-danger" href="{% url 'todo:index' %}"> Volver</a>
+        </span>
+    </div>
+{% endblock content %}

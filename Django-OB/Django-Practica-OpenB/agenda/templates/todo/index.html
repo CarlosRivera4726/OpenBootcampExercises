@@ -1,0 +1,60 @@
+{% extends '../layout/base.html' %}
+{% load static %}
+{% block title %}
+    Tareas
+{% endblock title %}
+
+{% block headers %}
+    <div class="container" style="display: flex; text-align: center; justify-content: center; align-items: center;">
+        <img src="{% static 'imgs/todos.png' %}" width="100px" height="100px"/>
+        <h1>Tareas</h1>
+    </div>
+{% endblock headers %}
+
+{% block content %}
+
+
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="alert alert-success"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+{% endif %}
+
+
+<!-- visualizar datos registrados-->
+
+<div class="container-sm">
+
+    {% include 'todo/partials/search.html' %}
+    
+    {% if count >= 1 %}
+
+        <span>
+            <a class="btn btn-primary" href="{% url 'todo:index' %}">Ver Todos</a>
+            <a class="btn btn-success" href="{% url 'todo:register' %}">Agregar Tarea</a>
+        </span>
+        <br>
+        <ul class="lista">
+            {% for todo in todos %}
+                <li>
+                    {{ todo }} {{ todo.last_name }}
+                    <span>
+                       <a class="btn btn-dark" href="{% url 'todo:view' id=todo.id %}">Ver</a>
+                       <a class="btn btn-primary" href="{% url 'todo:edit' id=todo.id %}">Editar</a>
+                       <a class="btn btn-danger" href="{% url 'todo:delete' id=todo.id %}">Borrar</a>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        
+            <h1 class="alert alert-danger">No existen tareas</h1>
+            <br>
+            <a class="btn btn-success" href="{% url 'todo:register' %}"> Registrar Una tarea</a>
+    {% endif %}
+</div>
+
+{% endblock content %}
+

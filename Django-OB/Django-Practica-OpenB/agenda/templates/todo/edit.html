@@ -1,0 +1,53 @@
+{% extends '../layout/base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+{% endblock styles %}
+
+{% block title %}
+    Tarea
+{% endblock title %}
+
+</head>
+{% block headers %}
+    <br> <h1>Editar tarea</h1>
+{% endblock headers %}
+
+{% block content %}
+
+    {% if messages %}
+        <div class="container-sm">
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="alert alert-success"{% endif %}>{{ message }}</li>
+                {% endfor %}    
+            </ul>
+            
+        <a class="btn btn-primary" href="{% url 'todo:view' id=id %}">Ver detalles</a>
+        <br>
+    </div>
+    {% endif %}
+
+    <a class="btn btn-danger" href="{% url 'todo:index' %}">Volver</a>
+    
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="container-sm">
+                    <form action="{% url 'todo:edit' id=id %}" method="POST">
+                        {% csrf_token %}
+                        {{ todoForm }}
+                        <br>
+                        <div class="row-cols-1">
+                            <input class="btn btn-success" type="submit" value="Enviar">
+                        <div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock content %}
+    

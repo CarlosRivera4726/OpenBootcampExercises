@@ -1,0 +1,16 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}Entradas{% endblock title %}
+
+{% block content %}
+
+<h1> Entry: {{ entry.headline }}</h1>
+
+<h3>{{ entry.bodyText }} </h3>
+<h5>{{ entry.publicDate }} </h5>
+<h6>{{ entry.rating }}</h6>
+
+
+<a class="btn btn-danger" href="{% url 'app-post:entries' entry.author_id %}" role="button" >Volver</a>
+    
+{% endblock content %}

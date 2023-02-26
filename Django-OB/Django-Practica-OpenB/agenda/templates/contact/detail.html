@@ -1,0 +1,33 @@
+{% extends '../layout/base.html' %}
+
+{% block title %}
+    Contacto {{ contact }}
+{% endblock title %}
+
+{% block headers %}
+    <h1>Contacto {{ contact }} {{ contact.last_name }}: </h1>
+{% endblock headers %}
+
+
+<!-- TODO: Mostrar el detalle del contacto! -->
+
+{% block content %}
+    <div class="container-sm">
+        <ul class="lista" style="width: 35%;">
+            {% if contact %}
+                <li> Número Telefonico:  <span>{{ contact.phone }} </span></li>
+                <li> Número Celular:  <span>{{ contact.mobile }} </span></li>
+                <li> Correo Electronico: <span> <a href="mailto: {{contact.email}}"> {{ contact.email }} </a> </span></li>
+                {% if contact.company %}
+                    <li> Compañia: <span> {{contact.company}} </span></li>
+                {% endif %}
+                <li> Fecha de Registro: <span>{{ contact.date }} </span></li>
+                {% if contact.notes %}
+                    <li>Notas: <span>{{ contact.notes }}</span></li>
+                {% endif %}
+
+            {% endif %}
+        </ul>
+        <a class="btn btn-danger" href="{% url 'contact:index' %}"> Volver</a>
+    </div>
+{% endblock content %}
